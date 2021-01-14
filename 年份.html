@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+
+    <div id="ymdhis"></div>
+
+    <script>
+        var q = new Date();
+        var y = q.getFullYear();            //年份
+        console.log(y);
+
+        var m = q.getMonth()+1;               //月
+        console.log(m)
+
+        var d = q.getDate();
+        console.log(d)                      //日
+
+        var h = q.getHours();               //时
+        console.log(h);
+
+        var i = q.getMinutes();              //分
+        console.log(i)
+
+        var s = q.getSeconds();             //秒
+        console.log(s);
+
+        var z = q.getDay();                 //周
+        console.log(z)
+        //设置开始时间
+        var ymdhis = y + '-' + m + '-' + d + " " + h + ':' + i + ':' + ':'+s+  '    星期' +z
+        console.log(ymdhis)
+
+       var now =  document.getElementById("ymdhis").innerText = ymdhis
+
+
+
+       
+
+
+
+
+
+
+        
+    </script>
+</body>
+
+</html>

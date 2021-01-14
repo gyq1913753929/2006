@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    放假倒计时 :<span id="time1"></span>
+    <script>
+        var xhr = new XMLHttpRequest()
+      
+        //2监听readystate ==4
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                //接收服务器的响应服务
+                var json_str = xhr.responseText
+                console.log(json_str)
+                 var data = JSON.parse(json_str)
+
+
+                // var seconds = obj.data.seconds
+                // console.log(seconds)
+            }
+
+            // setInterval(function () {
+            //     document.getElementById('time1').innerText = seconds
+            // }, 1000)
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="../jquery-3.5.1.min.js"></script>
+    <script>
+        
+
+
+
+
+        //实例化xhr
+        xhr = new XMLHttpRequest();
+        
+        //2监听readystate值
+        xhr.onreadystatechange = function(){
+            console.log(xhr.readyState)
+            if(xhr.readyState === xhr.DONE){
+                if(xhr.status ===200){
+                    var json_str = xhr.responseText
+                    console.log(json_str)
+                    var obj = JSON.parse(json_str)
+                    console.log(obj)
+                    console.log(obj.name)
+                }else{
+                    alert('xxxx')
+                }
+            }
+        }
+        xhr.open('GET','a.php')
+
+        xhr.send()
+    </script>
+</body>
+</html>

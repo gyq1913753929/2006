@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+ </head>
+ 
+ <body>
+    
+
+
+    <script type="../jquery-3.5.1.min.js"></script>
+    <script>
+       var obj1={
+          name:"hahaha",
+          age:22,
+          email:"www"
+       }
+       console.log(obj1.age);
+      
+       var obj_str = JSON.stringify(obj1);      //将js转为json字符串
+       console.log(obj_str);
+   
+       var json_obj = JSON.parse(obj_str);
+       console.log(json_obj.email);             //将json字符串转为js
+
+
+    </script>
+ </body>
+
+</html>
+
+
