@@ -18,10 +18,16 @@
             background-color: #eeeeee;
             margin: 10px;
             float: left;
+            background-image: url('111.jpg');
+            background-size: 200px;
         }
 
         .border {
             border: 1px solid red;
+        }
+        img{
+            width: 100px;
+            height: 100px;
         }
     </style>
 </head>
@@ -44,66 +50,61 @@
     <button id="btn2">停止</button>
 
     <script>
+
+
         var timers = []
-        
+        //开始抽奖
         $("#btn1").click(function () {
 
             //清除之前的定时器
             for (var j = 0; j < timers.length; j++) {
                 clearInterval(timers[j])
-                timers.splice(j, 1)              //删除定时器数组中的当前定时器
+                timers.splice(j, 1)          
             }
 
-            var divs = $(".divs")
-            divs.empty()
-
-            var divs = $(".divs")
-            divs.empty()
-
-            var t = setInterval(function () {
-                //清除css
-                divs.removeClass("border")
-
-                var rand_num = Math.random() * 100
+            var divs = $(".divs")       
+            divs.empty()                
+            var t = setInterval(function () {         
+                divs.removeClass('border')          
+                var rand_num = Math.random() * 10     
                 var num = parseInt(rand_num)
-
                 var index = num % 9
-                divs.eq(index).addClass("border")
+                divs.eq(index).addClass('border')       
             }, 100)
+
             timers.push(t)
-
-
 
             //停止
             $("#btn2").click(function () {
+
                 var divs = $(".divs")
                 $.ajax({
                     url: 'prize.php',
                     method: 'get',
                     dataType: 'json'
-                }).done(function (d) {         //请求成功 回调函数 d为服务返回的数据
-                    //清除定时器
-                    for(var j=0;j<timers.length;)
+                }).done(function (d) {         
+                    
+                    for (var j = 0; j < timers.length; j++) {
+                        console.log(timers[j])
+                        clearInterval(timers[j])
+                        timers.splice(j, 1)
+                    }
 
-
-
-                    divs.each(function (index) {      // 遍历 div
-                        if ($(this).hasClass('border')) {     //找到 包含选中样式的div
-                            divs.eq(index).append(d.msg)        //在选中的div中显示中奖信息
+                    divs.empty()        
+                    divs.each(function (index) {     
+                        if ($(this).hasClass('border')) {     
+                            divs.eq(index).append(d.msg)        
                         }
                     })
-                    $("#btn2").unbind('click')          // 删除 之前绑定的事件，防止事件叠加
+                    $("#btn2").unbind('click')         
+
                 })
 
             })
 
+        })
 
 
-
-
-
-
-        });
 
 
 
