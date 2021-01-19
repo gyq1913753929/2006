@@ -1,11 +1,19 @@
 <?php
     //接收参数
-    $id = $_GET['id'];
+   // $id = $_GET['id'];
 
     //查数据库
-    $status = true;
+   include "pdo.php";
+   $pdo  =getPdo();
+
+    $sql = "select * from p_rooms";
+    $res = $pdo->query($sql);
+    $data = $res->fetchAll(PDO::FETCH_ASSOC);
     
-    if($status)
+
+
+    
+    if($data)
     {
         $response = [
             'errno' =>0,

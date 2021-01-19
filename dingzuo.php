@@ -1,3 +1,25 @@
+<?php
+    session_start();
+    include "pdo.php";
+
+    $pdo = getPdo();
+    
+    $sql = "select * from p_rooms";
+    $res = $pdo ->query($sql);
+    $data = $res->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
